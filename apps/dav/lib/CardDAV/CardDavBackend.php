@@ -4,6 +4,7 @@
  * @author Björn Schießle <bjoern@schiessle.org>
  * @author Georg Ehrke <georg@owncloud.com>
  * @author Joas Schilling <coding@schilljs.com>
+ * @author Julian Müller <julimueller1998@gmail.com>
  * @author Stefan Weil <sw@weilnetz.de>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
@@ -159,7 +160,7 @@ class CardDavBackend implements BackendInterface, SyncSupport {
 		$addressBooks = $this->getUsersOwnAddressBooks($principalUri);
 
 		// query for shared calendars
-		$principals = $this->principalBackend->getGroupMembership($principalUri, true);
+		$principals = $this->principalBackend->getGroupMembership($principalUri, true, 'sharing');
 		$principals[]= $principalUri;
 
 		$query = $this->db->getQueryBuilder();
